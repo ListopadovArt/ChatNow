@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "255616204216",
+    "project_id": "chatnow-94286",
+    "storage_bucket": "chatnow-94286.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255616204216:android:635f00e18da3339fad634d",
+        "android_client_info": {
+          "package_name": "com.listart.chat_now"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqavKsfvm9h2E_WQ6qFIlDMqPM-TcwDHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
