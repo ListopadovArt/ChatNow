@@ -6,3 +6,4 @@ A mobile application for organizing a chat between users using Flutter technolog
 2. [firebase_core](https://pub.dev/packages/firebase_core)
 3. [firebase_auth](https://pub.dev/packages/firebase_auth)
 4. [cloud_firestore](https://pub.dev/packages/cloud_firestore)
+5. [modal_progress_hud_alt](https://pub.dev/packages/modal_progress_hud_alt)
