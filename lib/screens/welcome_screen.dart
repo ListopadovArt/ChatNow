@@ -19,7 +19,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   void initState() {
     super.initState();
-
     controller =
         AnimationController(duration: const Duration(seconds: 1), vsync: this);
     animation = CurvedAnimation(parent: controller, curve: Curves.easeIn);

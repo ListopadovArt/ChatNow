@@ -1,6 +1,8 @@
 import 'package:chat_now/components/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_now/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:chat_now/screens/chat_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String id = 'login_screen';
@@ -10,6 +12,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +37,11 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 48.0,
             ),
             TextField(
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
               onChanged: (value) {
                 //Do something with the user input.
+                email = value;
               },
               decoration:
                   kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
@@ -41,8 +50,11 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 8.0,
             ),
             TextField(
+              textAlign: TextAlign.center,
+              obscureText: true, // Скрыть текст
               onChanged: (value) {
                 //Do something with the user input.
+                password = value;
               },
               decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your password'),
@@ -53,8 +65,19 @@ class _LoginScreenState extends State<LoginScreen> {
             RoundedButton(
               color: Colors.lightBlueAccent,
               title: 'Log In',
-              onPressed: () {
+              onPressed: () async {
                 //Go to next screen.
+                print(email);
+                print(password);
+                try {
+                  final uer = await _auth.createUserWithEmailAndPassword(
+                      email: email, password: password);
+                  if (uer != null) {
+                    Navigator.pushNamed(context, ChatScreen.id);
+                  }
+                } catch (error) {
+                  print(error);
+                }
               },
             ),
           ],
